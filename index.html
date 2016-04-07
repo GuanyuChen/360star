@@ -2,11 +2,35 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>传说中的21点</title>
 	<link rel="stylesheet" type="text/css" href="styles/index.css">
 	<script type="text/javascript" src="scripts/index.js"></script>
 </head>
 <body>
-	
+	<div id="content">
+		<p>操作很简单的21点</p>
+		<div id="start" class="table">
+			<button>开始游戏</button>
+		</div>
+		<div id="game" class="table">
+			<div id="makers" class="personal flex">
+				<p>庄家</p>
+				<div class="cards flex"></div>
+			</div>
+			<div id="players" class="personal flex">
+				<p>玩家</p>
+				<div class="cards flex"></div>
+			</div>
+			<div id="msg">
+				<div id="before" class="flex">
+					<button>下注</button>
+					<p>$</p>
+					<button>发牌</button>
+				</div>
+				<div id="after"></div>
+			</div>
+		</div>
+	</div>
+	<div id="footer"></div>
 </body>
 </html>
