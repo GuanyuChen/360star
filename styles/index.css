@@ -118,22 +118,26 @@ ul{
 	line-height:40px;
 }
 
-#poker ul li{
+.poker ul li{
 	display:inline-block;
 	float:left;
 	width:70px;
 	height:90px;
 	border-radius:3px;
+	display:none;
 }
-#poker ul#club li{
+ul li span{
+	display:none;
+}
+ul.club li{
 	background-image:url('../images/club2.jpg');
 }
-#poker ul#diamond li{
+ul.diamond li{
 	background-image:url('../images/diamond2.jpg');
 }
-#poker ul#hearts li{
+ul.hearts li{
 	background-image:url('../images/hearts2.jpg');
 }
-#poker ul#spade li{
+ul.spade li{
 	background-image:url('../images/spade2.jpg');
 }

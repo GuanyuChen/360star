@@ -6,10 +6,13 @@ window.onload = function(){
 		addCard = document.getElementById('deal'),		// 发牌按钮
 		bet = document.getElementById('bet'),	//下注金额span
 		over = document.getElementById('over'),		//剩余金币span
-		club = document.getElementById('club'),
-		diamond = document.getElementById('diamond'),
-		hearts = document.getElementById('hearts'),
-		spade = document.getElementById('spade'),
+		club = document.getElementsByClassName('club')[0],
+		diamond = document.getElementsByClassName('diamond')[0],
+		hearts = document.getElementsByClassName('hearts')[0],
+		spade = document.getElementsByClassName('spade')[0],
+		player = document.getElementById('players'),
+		maker = document.getElementById('makers'),
+		money = 0,		//奖池
 		count = [];		//52张牌加一个牌面
 
 	// 为扑克牌赋牌面
@@ -43,14 +46,33 @@ window.onload = function(){
 		}
 	}
 
-	// 发牌
+	// 开始发牌
 	function deal(){
+		var tem = count.concat();	//将扑克牌数组复制
 		if (parseInt(bet.innerHTML,10) > 0) {	// 每一次下注至少为5
+			money = parseInt(bet.innerHTML,10);		//赌注入奖池
 			bet.innerHTML = '0';	// 发牌后赌注归零
 			console.log('发牌啦');
-			console.log(count);
-
+			// console.log(count);
+			every(tem,maker);
 		}
+	}
+
+	// 每次发牌
+	function every(tem,obj){
+		setTimeout(function(){
+			var ran = Math.round(Math.random()*tem.length),
+				ul = obj.getElementsByTagName('ul')[0];
+			if (ran < 12) {
+				ul.className = 'club';	
+			} else if (ran < 25) {
+				ul.className = 'diamond';
+			} else if (ran < 38) {
+				ul.className = 'spade';
+			}
+			tem[ran].style.display = 'block';
+			ul.appendChild(tem[ran]);
+		},500);
 	}
 
 	// 通过js修改background-position值
