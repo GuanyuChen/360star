@@ -15,11 +15,17 @@
 		<div id="game" class="table">
 			<div id="makers" class="personal flex">
 				<p>庄家</p>
-				<div class="cards flex poker"><ul></ul></div>
+				<div class="cards poker">
+					<ul></ul>
+					<p><span class="grade">0</span>点</p>
+				</div>
 			</div>
 			<div id="players" class="personal flex">
 				<p>玩家</p>
-				<div class="cards flex poker"><ul></ul></div>
+				<div class="cards poker">
+					<p><span class="grade">0</span>点</p>
+					<ul></ul>
+				</div>
 				<p>
 					<i></i><span id="over">100</span>
 				</p>
@@ -30,7 +36,10 @@
 					<p>$<span id="bet">0</span></p>
 					<button id="deal">发牌</button>
 				</div>
-				<div id="after"></div>
+				<div id="after" class="flex">
+					<button>叫牌</button>
+					<button>听牌</button>
+				</div>
 			</div>
 		</div>
 	</div>

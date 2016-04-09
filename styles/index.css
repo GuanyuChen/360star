@@ -8,6 +8,9 @@ button{
 	color:#fff;
 	font-size:20px;
 }
+button:hover{
+	background: #FFD700;
+}
 p{
 	font-size:20px;
 	color:rgb(230, 196, 63);
@@ -44,6 +47,20 @@ ul{
 .cards{
 	width:70%;
 	height:80%;
+	flex-flow:column nowrap;/*主轴改为由上到下*/
+	justify-content:space-between;
+	align-items:center;
+}
+.cards ul{
+	width:100%;
+	height:70%;
+}
+.cards p{
+	display:none;
+	width:100%;
+	color:#FF4040;
+	font-size:18px;
+	margin-bottom:10px;
 }
 /*内容div*/
 #content{
@@ -56,7 +73,6 @@ ul{
 	/* background-position: 100px 100px; */
 }
 #content>p{
-	font-size:20px;
 	color:#fff;
 }
 /*开始游戏页面*/
@@ -110,10 +126,13 @@ ul{
 	height:40px;
 	border-radius:5px;
 }
-#msg #before{
+#msg #before,#msg #after{
 	justify-content:space-around;
 }
-#msg #before p{
+#msg #after{
+	display:none;
+}
+#msg p{
 	font-size:30px;
 	line-height:40px;
 }
@@ -124,7 +143,7 @@ ul{
 	width:70px;
 	height:90px;
 	border-radius:3px;
-	display:none;
+/* 	display:none; */
 }
 ul li span{
 	display:none;
