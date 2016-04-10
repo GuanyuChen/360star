@@ -35,9 +35,6 @@ window.onload = function(){
 
 	addCard.onclick = function(){
 		deal();
-		bef.style.display = 'none';
-		aft.style.display = 'flex';		//切换按钮面板
-		grade[1].parentNode.style.display = 'block';	//显示玩家的点数
 	}
 
 	aft.getElementsByTagName('button')[0].onclick = function(){		//叫牌按钮
@@ -68,6 +65,11 @@ window.onload = function(){
 			grade[i].parentNode.style.display = 'none';
 		}
 		flag = true;
+		if (res.childNodes[3].innerHTML == '重新开始') {
+			start.style.display = 'block';
+			game.style.display = 'none';
+			over.innerHTML = '100';
+		}
 	}
 
 
@@ -86,13 +88,18 @@ window.onload = function(){
 	// 开始发牌
 	function deal(){
 		if (parseInt(bet.innerHTML,10) > 0) {	// 每一次下注至少为5
+			console.log(bet.innerHTML);
 			money = parseInt(bet.innerHTML,10);		//赌注入奖池
 			bet.innerHTML = '0';	// 发牌后赌注归零
+
 			every(maker);
 			every(player);
 			every(maker);
 			every(player);	//一边先发两张
-			// console.log(used.length);
+
+			bef.style.display = 'none';
+			aft.style.display = 'flex';		//切换按钮面板
+			grade[1].parentNode.style.display = 'block';	//显示玩家的点数
 		}
 	}
 
@@ -104,7 +111,7 @@ window.onload = function(){
 				count = 0,
 				index = 0;
 			while (used[ran] == 0) {
-				ran = Math.round(Math.random() * used.length);
+				ran = Math.round(Math.random() * (used.length-1));
 			}
 
 			var tem = poker(Math.floor(ran/13),Math.floor(ran%13));
@@ -150,7 +157,7 @@ window.onload = function(){
 				tem.style.backgroundImage = 'url(images/spade2.jpg)';
 				break;
 			default:
-				console.log('随机数计算错误，发不出牌');
+				console.log('随机数计算错误，发不出牌 '+i1);
 				break;
 		}
 		if (i2 < 5) {
@@ -176,7 +183,7 @@ window.onload = function(){
 
 		grade[0].parentNode.style.display = 'block'		//显示庄家的点数
 
-		while(parseInt(grade[0].innerHTML, 10) < 17){	//当庄家的点数小于18时，一直叫牌
+		while(parseInt(grade[0].innerHTML, 10) < 17){	//当庄家的点数小于17时，一直叫牌
 			every(maker);
 		}
 
@@ -207,6 +214,16 @@ window.onload = function(){
 				text = '哈哈哈！都爆掉了！';
 				over.innerHTML = parseInt(over.innerHTML,10) + money;
 			}
+		}
+
+		money = 0;// 奖池清空
+
+		if (parseInt(over.innerHTML,10) < 5) {
+			text = '真不爽，又全军覆没了';
+			res.childNodes[3].innerHTML = '重新开始';
+			console.log(res.childNodes[3]);
+		} else {
+			res.childNodes[3].innerHTML = '再来一局';
 		}
 
 		res.childNodes[1].innerHTML = text;
