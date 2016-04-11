@@ -1,0 +1,79 @@
+/* 对移动端的适配 */
+
+/* 移动端公用属性 */
+.table{
+	margin-top:10px;
+	border:none;
+	border-radius:0;
+}
+#content{
+	width:95%;
+	height:710px;
+	padding:5px;
+}
+#players>p:last-child{
+	width:100px;
+	font-size:24px;
+}
+#msg p{
+	font-size:24px;
+	line-height:30px;
+}
+
+/* 适配iPhone5，iPhone6，iPhone6 plus 及Galaxy S5 等一般机型*/
+@media screen and (max-width: 435px) {
+	#content>#start>button{
+		width:100%;
+		left:0;
+		font-size:30px;
+		border-radius:0;
+	}
+}
+
+/* 适配iPad */
+@media screen and (min-width: 768px){
+	.personal{
+		height:320px;
+	}
+	.cards p{
+		font-size:28px;
+	}
+	button{
+		width:400px;
+		height:100px;
+		font-size:30px;
+	}
+	p{
+		font-size:30px;
+	}
+	#content{
+		height:1024px;
+	}
+	#content>#start{
+		background:url('../images/start3.jpg') no-repeat;
+	}
+	#content>#start>button{
+		top:800px;
+		left:170px;
+		font-size:40px;
+	}
+	#content>#game{
+		padding-top:50px;
+	}
+	#makers>p,#players>p{
+		width:100px;
+	}
+	#msg{
+		top:-180px;
+	}
+	#msg button{
+		height:50px;
+	}
+	#msg p{
+		font-size:30px;
+		line-height:40px;
+	}
+	#msg #result{
+		height:120px;
+	}
+}
